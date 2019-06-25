@@ -45,11 +45,18 @@ class CustomTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "ChartTableViewCell") as! ChartTableViewCell
         cell.data = dataSource[indexPath.section]
-
+        var labels:[String] = []
+        var values:[Double] = []
+        for item in cell.data.charData {
+            labels.append(item.text)
+            values.append(Double(item.percentage))
+        }
+        cell.setChart(dataPoints: labels, values: values)
         if let text = cell.data.text, text == nil {
             cell.question?.text = "unable to load question"
         } else {
             cell.question?.text = "\((cell.data.text)!)"
+            return cell
         }
         //        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         
@@ -80,19 +87,18 @@ class CustomTableViewController: UITableViewController {
         print("remueve observable")
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "alamofireFinished"), object: nil)
     }
-    
-    
+ 
 }
 
 class Question {
     var text: String!
-    var total: Double!
+    var total: Int!
     var charData: [ChartData]!
     var dictionary:Dictionary<String,Int> = Dictionary<String,Int>()
     
     init(_ question: [String:Any]) {
         guard let text = question["text"] as? String else { return }
-        guard let total = question["total"] as? Double else { return }
+        guard let total = question["total"] as? Int else { return }
         guard let chartData = question["chartData"] as? [[String:Any]] else { return }
         self.text = text
         self.total = total
@@ -111,9 +117,9 @@ class Question {
 }
 class ChartData{
     var text:String!
-    var percentage:Double!
+    var percentage:Int!
     init(_ data: [String:Any]) {
         self.text = data["text"] as? String
-        self.percentage = data["percetnage"] as? Double
+        self.percentage = data["percetnage"] as? Int
     }
 }

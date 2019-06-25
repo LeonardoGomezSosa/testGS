@@ -16,6 +16,10 @@ class ChartTableViewCell: UITableViewCell, ChartViewDelegate {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        pieChart.noDataText = "No hay datos para la gráfica."
+
+
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -23,6 +27,35 @@ class ChartTableViewCell: UITableViewCell, ChartViewDelegate {
         // Configure the view for the selected state
     }
     
+    func setChart(dataPoints: [String], values: [Double]) {
+        
+        var dataEntries: [ChartDataEntry] = []
+        
+        for i in 0..<dataPoints.count {
+            let dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i], data: dataPoints[i] as AnyObject)
+            dataEntries.append(dataEntry)
+        }
+        
+        let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: "")
+        let pieChartData = PieChartData(dataSet: pieChartDataSet)
+        pieChart.data = pieChartData
 
+        
+        var colors: [UIColor] = []
+        
+        for i in 0..<dataPoints.count {
+            let red = Double(arc4random_uniform(256))
+            let green = Double(arc4random_uniform(256))
+            let blue = Double(arc4random_uniform(256))
+            
+            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
+            colors.append(color)
+        }
+        
+        pieChartDataSet.colors = colors
+        
+        
+        
+    }
     
 }

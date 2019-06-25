@@ -24,7 +24,6 @@
 		F4CE9CFD22C1AE8B00593DC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4CE9CFC22C1AE8B00593DC8 /* Assets.xcassets */; };
 		F4CE9D0022C1AE8B00593DC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4CE9CFE22C1AE8B00593DC8 /* LaunchScreen.storyboard */; };
 		F4CE9D0A22C1AFDB00593DC8 /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CE9D0922C1AFDA00593DC8 /* MainNavigationViewController.swift */; };
-		F4CE9D0C22C1B09700593DC8 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CE9D0B22C1B09700593DC8 /* MainTabBarController.swift */; };
 		F4CE9D1122C1B37E00593DC8 /* CustomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CE9D0F22C1B37E00593DC8 /* CustomTableViewController.swift */; };
 		F4CE9D1222C1B37E00593DC8 /* CustomTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4CE9D1022C1B37E00593DC8 /* CustomTableViewController.xib */; };
 /* End PBXBuildFile section */
@@ -51,7 +50,6 @@
 		F4CE9CFF22C1AE8B00593DC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F4CE9D0122C1AE8B00593DC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4CE9D0922C1AFDA00593DC8 /* MainNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainNavigationViewController.swift; path = controllers/MainNavigationViewController.swift; sourceTree = "<group>"; };
-		F4CE9D0B22C1B09700593DC8 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainTabBarController.swift; path = controllers/MainTabBarController.swift; sourceTree = "<group>"; };
 		F4CE9D0F22C1B37E00593DC8 /* CustomTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewController.swift; sourceTree = "<group>"; };
 		F4CE9D1022C1B37E00593DC8 /* CustomTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,7 +100,6 @@
 			children = (
 				F4CE9D0F22C1B37E00593DC8 /* CustomTableViewController.swift */,
 				F4CE9D0922C1AFDA00593DC8 /* MainNavigationViewController.swift */,
-				F4CE9D0B22C1B09700593DC8 /* MainTabBarController.swift */,
 				F494BD9A22C1EBAF00272D3F /* MainTableViewController.swift */,
 			);
 			name = controllers;
@@ -292,7 +289,6 @@
 				F494BD8622C1B72300272D3F /* MenuOption.swift in Sources */,
 				F494BDA122C1EDF500272D3F /* InputTableViewCell.swift in Sources */,
 				F494BD9C22C1EBAF00272D3F /* MainTableViewController.swift in Sources */,
-				F4CE9D0C22C1B09700593DC8 /* MainTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
