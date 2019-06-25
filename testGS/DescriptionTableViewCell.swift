@@ -11,9 +11,12 @@ import UIKit
 class DescriptionTableViewCell: UITableViewCell {
     @IBOutlet weak var customLabel: UILabel!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        customLabel.numberOfLines = 0
+        customLabel.sizeToFit()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

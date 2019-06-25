@@ -87,8 +87,12 @@ class CustomTableViewController: UITableViewController {
         print("remueve observable")
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "alamofireFinished"), object: nil)
     }
+    
+    
  
 }
+
+
 
 class Question {
     var text: String!
