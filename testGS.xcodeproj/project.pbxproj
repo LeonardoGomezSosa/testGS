@@ -32,6 +32,7 @@
 		392A1226CDD2BDDDE3DE2C72 /* Pods-testGS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testGS.debug.xcconfig"; path = "Target Support Files/Pods-testGS/Pods-testGS.debug.xcconfig"; sourceTree = "<group>"; };
 		39C57C768AFB8966B6443CB8 /* Pods_testGS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_testGS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B38A03A2FFFAE5DEFD6EFF3E /* Pods-testGS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testGS.release.xcconfig"; path = "Target Support Files/Pods-testGS/Pods-testGS.release.xcconfig"; sourceTree = "<group>"; };
+		F40982D322C295FC00E5A449 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F494BD8522C1B72300272D3F /* MenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuOption.swift; path = MenuOptions/MenuOption.swift; sourceTree = "<group>"; };
 		F494BD8722C1B7F100272D3F /* alamofireGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = alamofireGetter.swift; path = services/alamofireGetter.swift; sourceTree = "<group>"; };
 		F494BD8922C1B8BA00272D3F /* NotificationCenter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NotificationCenter+Extension.swift"; path = "notifications/NotificationCenter+Extension.swift"; sourceTree = "<group>"; };
@@ -130,6 +131,7 @@
 		F4CE9CE922C1AE8A00593DC8 = {
 			isa = PBXGroup;
 			children = (
+				F40982D322C295FC00E5A449 /* README.md */,
 				F4CE9CF422C1AE8A00593DC8 /* testGS */,
 				F4CE9CF322C1AE8A00593DC8 /* Products */,
 				861BACAFC8BB538CF30AA654 /* Pods */,
