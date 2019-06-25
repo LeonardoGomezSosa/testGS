@@ -8,8 +8,7 @@
 
 import UIKit
 
-class MainTabBarController: UITabBarController {
-    let charts = UINavigationController(rootViewController: CustomTableViewController())
+class MainTabBarController: UINavigationController {
     let mainView = UINavigationController(rootViewController: MainTableViewController())
 
     
@@ -20,21 +19,19 @@ class MainTabBarController: UITabBarController {
         self.setColorsTabBar()
     }
     
+
     // MARK: - Config
     
     func setControllers () {
-        charts.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 0)
-        mainView.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 1)
-
-        self.viewControllers = [charts, mainView]
+        self.viewControllers = [ mainView]
     }
     
     func setColorsTabBar() {
-        self.tabBar.backgroundColor = .lightGray
-        self.tabBar.barTintColor = .darkGray
-        self.tabBar.barStyle = .default
-        self.tabBar.unselectedItemTintColor = .darkGray
-        self.tabBar.tintColor = .lightGray
+//        self.tabBar.backgroundColor = .lightGray
+//        self.tabBar.barTintColor = .darkGray
+//        self.tabBar.barStyle = .default
+//        self.tabBar.unselectedItemTintColor = .darkGray
+//        self.tabBar.tintColor = .lightGray
     }
     // MARK: - Navigation
     
