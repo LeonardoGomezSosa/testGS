@@ -51,6 +51,7 @@ class CustomTableViewController: UITableViewController {
             labels.append(item.text)
             values.append(Double(item.percentage))
         }
+        cell.myColors = colors
         cell.setChart(dataPoints: labels, values: values)
         if let text = cell.data.text, text == nil {
             cell.question?.text = "unable to load question"
