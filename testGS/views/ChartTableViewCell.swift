@@ -43,16 +43,15 @@ class ChartTableViewCell: UITableViewCell, ChartViewDelegate {
 
         
         var colors: [UIColor] = []
-        var index = 0
         for i in 0..<dataPoints.count {
-            let red = Double(arc4random_uniform(256))
-            let green = Double(arc4random_uniform(256))
-            let blue = Double(arc4random_uniform(256))
-            print("=====>index , Color: ", i, myColors[i % dataPoints.count])
-            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
-            let myColor = UIColor(hexString: myColors[index % dataPoints.count], alpha: 1) ?? color
-            colors.append(myColor)
-            index += 1
+            if myColors.isEmpty {
+                let red = Double(arc4random_uniform(256))
+                let green = Double(arc4random_uniform(256))
+                let blue = Double(arc4random_uniform(256))
+                colors.append(UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1))
+            } else {
+                colors.append(UIColor(hexString: myColors[i % myColors.count], alpha: 1))
+            }
         }
         
         pieChartDataSet.colors = colors

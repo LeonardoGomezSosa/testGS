@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		055F58221CDD32E695E9220F /* Pods_testGS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C57C768AFB8966B6443CB8 /* Pods_testGS.framework */; };
 		F494BD8622C1B72300272D3F /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = F494BD8522C1B72300272D3F /* MenuOption.swift */; };
-		F494BD8822C1B7F100272D3F /* alamofireGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F494BD8722C1B7F100272D3F /* alamofireGetter.swift */; };
-		F494BD8A22C1B8BA00272D3F /* NotificationCenter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F494BD8922C1B8BA00272D3F /* NotificationCenter+Extension.swift */; };
+		F494BD8822C1B7F100272D3F /* QuestionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F494BD8722C1B7F100272D3F /* QuestionService.swift */; };
 		F494BD8C22C1C16C00272D3F /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F494BD8B22C1C16C00272D3F /* ResponseModel.swift */; };
 		F494BD9322C1D28700272D3F /* ChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F494BD9122C1D28700272D3F /* ChartTableViewCell.swift */; };
 		F494BD9422C1D28700272D3F /* ChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F494BD9222C1D28700272D3F /* ChartTableViewCell.xib */; };
@@ -33,8 +32,7 @@
 		39C57C768AFB8966B6443CB8 /* Pods_testGS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_testGS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B38A03A2FFFAE5DEFD6EFF3E /* Pods-testGS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testGS.release.xcconfig"; path = "Target Support Files/Pods-testGS/Pods-testGS.release.xcconfig"; sourceTree = "<group>"; };
 		F494BD8522C1B72300272D3F /* MenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuOption.swift; path = MenuOptions/MenuOption.swift; sourceTree = "<group>"; };
-		F494BD8722C1B7F100272D3F /* alamofireGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = alamofireGetter.swift; path = services/alamofireGetter.swift; sourceTree = "<group>"; };
-		F494BD8922C1B8BA00272D3F /* NotificationCenter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NotificationCenter+Extension.swift"; path = "notifications/NotificationCenter+Extension.swift"; sourceTree = "<group>"; };
+		F494BD8722C1B7F100272D3F /* QuestionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuestionService.swift; path = services/QuestionService.swift; sourceTree = "<group>"; };
 		F494BD8B22C1C16C00272D3F /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResponseModel.swift; path = Models/ResponseModel.swift; sourceTree = "<group>"; };
 		F494BD9122C1D28700272D3F /* ChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChartTableViewCell.swift; path = views/ChartTableViewCell.swift; sourceTree = "<group>"; };
 		F494BD9222C1D28700272D3F /* ChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ChartTableViewCell.xib; path = views/ChartTableViewCell.xib; sourceTree = "<group>"; };
@@ -109,8 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				F494BD8522C1B72300272D3F /* MenuOption.swift */,
-				F494BD8722C1B7F100272D3F /* alamofireGetter.swift */,
-				F494BD8922C1B8BA00272D3F /* NotificationCenter+Extension.swift */,
+				F494BD8722C1B7F100272D3F /* QuestionService.swift */,
 				F494BD8B22C1C16C00272D3F /* ResponseModel.swift */,
 			);
 			name = utils;
@@ -284,8 +281,7 @@
 				F4CE9CF622C1AE8A00593DC8 /* AppDelegate.swift in Sources */,
 				F494BDA522C1FAB400272D3F /* DescriptionTableViewCell.swift in Sources */,
 				F4CE9D0A22C1AFDB00593DC8 /* MainNavigationViewController.swift in Sources */,
-				F494BD8A22C1B8BA00272D3F /* NotificationCenter+Extension.swift in Sources */,
-				F494BD8822C1B7F100272D3F /* alamofireGetter.swift in Sources */,
+				F494BD8822C1B7F100272D3F /* QuestionService.swift in Sources */,
 				F494BD8622C1B72300272D3F /* MenuOption.swift in Sources */,
 				F494BDA122C1EDF500272D3F /* InputTableViewCell.swift in Sources */,
 				F494BD9C22C1EBAF00272D3F /* MainTableViewController.swift in Sources */,

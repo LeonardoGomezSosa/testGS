@@ -6,7 +6,6 @@ target 'testGS' do
   use_frameworks!
 
   # Pods for testGS
-  pod 'Alamofire'
   pod 'Charts'
   pod 'ObjectMapper'
 end
