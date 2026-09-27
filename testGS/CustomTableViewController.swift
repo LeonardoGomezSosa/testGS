@@ -14,116 +14,47 @@ class CustomTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(UINib(nibName: "ChartTableViewCell", bundle: nil), forCellReuseIdentifier: "ChartTableViewCell")
-        getRequestWithAlamofire()
-        
+        loadQuestions()
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.addListeners()
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.removeListeners()
-    }
-    
+
     // MARK: - Table view data source
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return dataSource.count
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return 1
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 400
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "ChartTableViewCell") as! ChartTableViewCell
-        cell.data = dataSource[indexPath.section]
-        var labels:[String] = []
-        var values:[Double] = []
-        for item in cell.data.charData {
-            labels.append(item.text)
-            values.append(Double(item.percentage))
-        }
-        cell.setChart(dataPoints: labels, values: values)
-        if let text = cell.data.text, text == nil {
-            cell.question?.text = "unable to load question"
-        } else {
-            cell.question?.text = "\((cell.data.text)!)"
-            return cell
-        }
-        //        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-        
-        // Configure the cell...
-        
+        let question = dataSource[indexPath.section]
+        cell.data = question
+        cell.question?.text = question.text
+        cell.myColors = colors
+        cell.setChart(dataPoints: question.chartData.map { $0.text },
+                      values: question.chartData.map { Double($0.percentage) })
         return cell
     }
-    
-    @objc func printData(notification: Notification){
-        print("detecta emision")
-        guard let userInfo = (notification.userInfo) as? [String:Any] else { print("no regresa datos"); return}
-        guard let colors = userInfo["colors"] as? [String] else { print("no colors in json"); return}
-        guard let questions = userInfo["questions"] as? [[String:Any]] else { print("no questions in json"); return}
-        self.colors = colors
-        for question in questions {
-            let q = Question(question)
-            dataSource.append(q)
+
+    // MARK: - Networking
+
+    func loadQuestions() {
+        fetchQuestions { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let response):
+                self.colors = response.colors
+                self.dataSource = response.questions
+                self.tableView.reloadData()
+            case .failure(let error):
+                print("unable to load questions:", error)
+            }
         }
-        self.tableView.reloadData()
-    }
-    
-    func addListeners(){
-        print("agrega Observable")
-        NotificationCenter.default.addObserver(self, selector: #selector(printData), name: NSNotification.Name(rawValue: "alamofireFinished"), object: nil)
-    }
-    
-    func removeListeners(){
-        print("remueve observable")
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "alamofireFinished"), object: nil)
-    }
-    
-    
- 
-}
-
-
-
-class Question {
-    var text: String!
-    var total: Int!
-    var charData: [ChartData]!
-    var dictionary:Dictionary<String,Int> = Dictionary<String,Int>()
-    
-    init(_ question: [String:Any]) {
-        guard let text = question["text"] as? String else { return }
-        guard let total = question["total"] as? Int else { return }
-        guard let chartData = question["chartData"] as? [[String:Any]] else { return }
-        self.text = text
-        self.total = total
-        var data:[ChartData] = []
-        var dict:Dictionary<String,Int> = Dictionary<String,Int>()
-        for item in chartData {
-            let dato = item as! [String:Any]
-            dict.updateValue(dato["percetnage"] as! Int, forKey: dato["text"] as! String)
-            print (dato)
-            data.append(ChartData(item))
-        }
-        print("dictionary", dict)
-        dictionary = dict
-        self.charData = data
-    }
-}
-class ChartData{
-    var text:String!
-    var percentage:Int!
-    init(_ data: [String:Any]) {
-        self.text = data["text"] as? String
-        self.percentage = data["percetnage"] as? Int
     }
 }

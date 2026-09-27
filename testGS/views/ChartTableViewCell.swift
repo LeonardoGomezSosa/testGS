@@ -13,6 +13,7 @@ class ChartTableViewCell: UITableViewCell, ChartViewDelegate {
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var question: UILabel!
     var data: Question!
+    var myColors:[String]! = [];
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,14 +43,15 @@ class ChartTableViewCell: UITableViewCell, ChartViewDelegate {
 
         
         var colors: [UIColor] = []
-        
         for i in 0..<dataPoints.count {
-            let red = Double(arc4random_uniform(256))
-            let green = Double(arc4random_uniform(256))
-            let blue = Double(arc4random_uniform(256))
-            
-            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
-            colors.append(color)
+            if myColors.isEmpty {
+                let red = Double(arc4random_uniform(256))
+                let green = Double(arc4random_uniform(256))
+                let blue = Double(arc4random_uniform(256))
+                colors.append(UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1))
+            } else {
+                colors.append(UIColor(hexString: myColors[i % myColors.count], alpha: 1))
+            }
         }
         
         pieChartDataSet.colors = colors
